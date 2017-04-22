@@ -1,0 +1,62 @@
+<!--
+@license
+Copyright (c) 2016 The Jviz Project Authors. All rights reserved.
+The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob/dev/LICENSE
+-->
+
+<!-- Import dependencies -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../jviz/jviz.html">
+<link rel="import" href="../jviz-styles/jviz-styles.html">
+
+<!-- Grid column module -->
+<dom-module id="jviz-grid-column">
+  <template>
+    <style>
+      :host
+      {
+        --jviz-grid-column--width: 0px;
+        --jviz-grid-column--padding: 1%;
+      }
+      :host
+      {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(var(--jviz-grid-column--width) - 2*var(--jviz-grid-column--padding));
+        float: left;
+        padding: var(--jviz-grid-column--padding);
+      }
+      @media (max-width: 400px)
+      {
+        :host { width: 98% !important; }
+      }
+    </style>
+    <content></content>
+  </template>
+</dom-module>
+
+<!-- Grid logic -->
+<script>
+  //Initialize the grid column object
+  var jviz_grid_column = { is: 'jviz-grid-column' };
+
+  //Initialize the properties
+  jviz_grid_column.properties = {};
+  jviz_grid_column.properties.columns = { type: Number, reflectToAttribute: true, observer: '_update_columns' };
+
+  //Update the number of columns
+  jviz_grid_column._update_columns = function(value)
+  {
+    //Get the real column width
+    value = parseInt(value) * 8.33;
+
+    //Update the column width
+    this.customStyle['--jviz--grid-column--width'] = value + '%';
+
+    //Update the styles
+    this.updateStyles();
+  };
+
+  //Register the grid row element
+  Polymer(jviz_grid_column);
+</script>
