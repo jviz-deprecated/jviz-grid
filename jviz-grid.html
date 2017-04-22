@@ -9,6 +9,10 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
 <link rel="import" href="../jviz/jviz.html">
 <link rel="import" href="../jviz-styles/jviz-styles.html">
 
+<!-- Import grid elements -->
+<link rel="import" href="./jviz-grid-row.html">
+<link rel="import" href="./jviz-grid-column.html">
+
 <!-- Grid module -->
 <dom-module id="jviz-grid">
   <template>
@@ -20,6 +24,10 @@ The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob
         min-height: 40px;
         margin-left: auto;
         margin-right: auto;
+      }
+      @media (max-width: 960px)
+      {
+        :host { width: 94% !important; }
       }
     </style>
     <content selector="jviz-grid-row"></content>
