@@ -1,0 +1,39 @@
+<!--
+@license
+Copyright (c) 2016 The Jviz Project Authors. All rights reserved.
+The Jviz Project is under the MIT License. See https://github.com/jviz/jviz/blob/dev/LICENSE
+-->
+
+<!-- Import dependencies -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../jviz/jviz.html">
+<link rel="import" href="../jviz-styles/jviz-styles.html">
+
+<!-- Grid row module -->
+<dom-module id="jviz-grid-row">
+  <template>
+    <style>
+      :host
+      {
+        display: inline-block;
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+      :host :after
+      {
+        content: " ";
+        clear: both;
+        display: table;
+        line-height: 0;
+      }
+    </style>
+    <content selector="jviz-grid-column"></content>
+  </template>
+</dom-module>
+
+<!-- Grid logic -->
+<script>
+  //Register the grid row element
+  Polymer({ is: 'jviz-grid-row' });
+</script>
